@@ -1,48 +1,76 @@
-# Project Title
+# Banco web tests
 
-A concise description of the project, its purpose, and primary functionality.
+Cypress end-to-end tests for the Banco Web project.
 
-## Features
+## Overview
 
-- Clear, focused feature list
-- Easy setup and usage
-- Modularity and extensibility
+This repository contains Cypress E2E specs for login and transfer flows of the Banco Web demo app.
 
 ## Requirements
 
-- Python 3.8+ (or specify relevant runtime)
-- Any additional dependencies listed in requirements.txt
+- Node.js (14+)
+- npm
 
-## Installation
+## Install (including Cypress)
 
-1. Clone the repository:
-   git clone https://github.com/your-org/your-repo.git
-2. Change into the project directory:
-   cd your-repo
-3. Create and activate a virtual environment (optional but recommended):
-   python -m venv .venv
-   source .venv/bin/activate  # macOS / Linux
-   .venv\Scripts\activate     # Windows
-4. Install dependencies:
-   pip install -r requirements.txt
+1. Install dependencies (this installs Cypress as a devDependency listed in [package.json](package.json)):
+   ```sh
+   npm install
+   ```
+2. Verify Cypress binary (optional):
+   ```sh
+   npx cypress verify
+   ```
+3. Open Cypress Test Runner (optional, GUI):
+   ```sh
+   npm run cy:open
+   ```
+Commands are defined in [package.json](package.json).
 
-## Usage
+## Run tests (CI / headless)
 
-- Run the main entry point:
-  python -m your_package
-- Refer to the docs directory or inline docstrings for details on configuration and available commands.
+- Run headless tests:
+  ```sh
+  npm run test
+  ```
+- Run headed (headed browser):
+  ```sh
+  npm run cy:headed
+  ```
 
-## Contributing
+## Configuration
 
-- Fork the repository and create a feature branch.
-- Write tests for new features or bug fixes.
-- Follow the project's code style and run linters before submitting a pull request.
-- Open a PR with a clear description of changes.
+Cypress base URL and reporter are configured in [cypress.config.js](cypress.config.js).
 
-## License
+## Test specs
 
-Specify the project license (e.g., MIT). See LICENSE file for full terms.
+- [cypress/e2e/login.cy.js](cypress/e2e/login.cy.js)
+- [cypress/e2e/transfer.cy.js](cypress/e2e/transfer.cy.js)
 
-## Contact
+## Support & custom commands
 
-For issues or questions, open an issue in the repository.
+Support files that register commands and reporters:
+
+- [cypress/support/e2e.js](cypress/support/e2e.js)
+- [cypress/support/commands.js](cypress/support/commands.js)
+
+Custom commands implemented:
+
+- [`Cypress.Commands.add('loginWithValidCredentials')`](cypress/support/commands/login.js) and [`Cypress.Commands.add('loginWithInvalidCredentials')`](cypress/support/commands/login.js)
+- [`Cypress.Commands.add('transfer')`](cypress/support/commands/transfer.js)
+- [`Cypress.Commands.add('verifyToastMessage')`](cypress/support/commands/common.js) and [`Cypress.Commands.add('selectComboBoxOption')`](cypress/support/commands/common.js)
+
+## Fixtures
+
+- [cypress/fixtures/credentials.json](cypress/fixtures/credentials.json)
+- [cypress/fixtures/example.json](cypress/fixtures/example.json)
+
+## Reports & artifacts
+
+- Mochawesome JSON reports: cypress/reports/html/.jsons (examples: [cypress/reports/html/.jsons/mochawesome.json](cypress/reports/html/.jsons/mochawesome.json), [cypress/reports/html/.jsons/mochawesome_001.json](cypress/reports/html/.jsons/mochawesome_001.json))
+- Screenshots: cypress/screenshots (example: [cypress/screenshots/login.cy.js/after-visit-page.png](cypress/screenshots/login.cy.js/after-visit-page.png))
+
+## Notes
+
+- Reporter configured: `cypress-mochawesome-reporter` in [cypress.config.js](cypress.config.js).
+- Tests use fixtures and custom commands to keep specs concise.
