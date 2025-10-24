@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-24T00:14:52.214Z",
+    "end": "2025-10-24T00:14:56.046Z",
+    "duration": 3832,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5e1afd8f-127a-4991-84f6-8d2c3bcc50b0",
+      "title": "",
+      "fullFile": "cypress/e2e/login.cy.js",
+      "file": "cypress/e2e/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5f056dda-61a3-4059-8546-70248becbcac",
+          "title": "Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login with valid data should allow entry to the system",
+              "fullTitle": "Login Login with valid data should allow entry to the system",
+              "timedOut": null,
+              "duration": 2227,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/login.cy.js/after-visit-page.png\"\n    ]\n  ]\n}",
+              "code": "//act\ncy.loginWithValidCredentials();\n//assert\ncy.contains('h4', 'Realizar Transferência').should('be.visible');",
+              "err": {},
+              "uuid": "ae558cc4-28f7-43b2-9fe3-d83ef908e8b8",
+              "parentUUID": "5f056dda-61a3-4059-8546-70248becbcac",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login with invalid data should deny entry to the system",
+              "fullTitle": "Login Login with invalid data should deny entry to the system",
+              "timedOut": null,
+              "duration": 1519,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"/login.cy.js/after-visit-page (1).png\"\n    ]\n  ]\n}",
+              "code": "//act\ncy.loginWithInvalidCredentials();\n//assert\ncy.verifyToastMessage('Erro no login. Tente novamente.');",
+              "err": {},
+              "uuid": "66b97b3a-8abf-4bd1-94f3-bf5061c47fc0",
+              "parentUUID": "5f056dda-61a3-4059-8546-70248becbcac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae558cc4-28f7-43b2-9fe3-d83ef908e8b8",
+            "66b97b3a-8abf-4bd1-94f3-bf5061c47fc0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3746,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.3.0"
+    }
+  }
+}
